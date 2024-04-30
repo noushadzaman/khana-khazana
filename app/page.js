@@ -1,19 +1,20 @@
 import CategorySidebar from "@/components/Home/CategorySidebar";
 import HeroSection from "@/components/Home/HeroSection";
-import RecipesList from "@/components/Home/RecipesList";
+import RecipesList from "@/components/RecipesList";
 import { getAllRecipes } from "@/db/queries";
+import { findAllCategories } from "@/utils/data-utils";
 
 export default async function Home() {
   const allRecipes = await getAllRecipes();
-  console.log(allRecipes);
+  const allCategories = await findAllCategories(allRecipes);
 
   return (
     <>
       <HeroSection />
       <section class="container py-8">
         <div class="grid grid-cols-12 py-4">
-          <CategorySidebar />
-          <RecipesList allRecipes={allRecipes} />
+          <CategorySidebar allCategories={allCategories} />
+          <RecipesList allRecipes={allRecipes} isHome={true} />
         </div>
       </section>
     </>
