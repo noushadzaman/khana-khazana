@@ -42,5 +42,3 @@ export function makeLinkReverse(string) {
     .join(" ");
   return items;
 }
-
-

@@ -1,6 +1,5 @@
 import { makeLink } from '@/utils/data-utils';
 import Link from 'next/link';
-import React from 'react';
 
 const CategorySidebar = ({ allCategories }) => {
     return (

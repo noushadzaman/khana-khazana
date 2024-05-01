@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SignInOut from "./Auth/SignInOut";
 
 const Navbar = () => {
     return (
@@ -29,7 +30,7 @@ const Navbar = () => {
                     </li>
 
                     <li className="py-2 bg-[#eb4a36] px-6 rounded-md text-white content-center">
-                        <Link href="/login">Login</Link>
+                        <SignInOut />
                     </li>
                 </ul>
             </div>
