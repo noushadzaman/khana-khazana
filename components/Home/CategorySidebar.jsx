@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 const CategorySidebar = ({ allCategories }) => {
     return (
-        <div class="col-span-12 md:col-span-3">
-            <h3 class="font-bold text-xl">Recipes</h3>
-            <ul class="pl-2 my-6 space-y-4 text-gray-500 text-sm">
+        <div className="col-span-12 md:col-span-3">
+            <h3 className="font-bold text-xl">Recipes</h3>
+            <ul className="pl-2 my-6 space-y-4 text-gray-500 text-sm">
                 {
                     allCategories.map(category => <li
                         key={category}

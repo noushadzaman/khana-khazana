@@ -1,7 +1,12 @@
-'use server';
+"use server";
 
-import { createUser, findUserByCredentials } from "@/db/queries";
+import {
+  createUser,
+  findUserByCredentials,
+  updateFavoriteRecipe,
+} from "@/db/queries";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 async function registerUser(formData) {
   const user = Object.fromEntries(formData);
@@ -21,5 +26,14 @@ async function performLogin(formData) {
   }
 }
 
+async function addFavouriteRecipe(userId, recipeId) {
+  try {
+    await updateFavoriteRecipe(userId, recipeId);
+  } catch (error) {
+    throw error;
+  }
+  revalidatePath("/");
+  redirect("/");
+}
 
-export { registerUser, performLogin };
+export { registerUser, performLogin, addFavouriteRecipe };

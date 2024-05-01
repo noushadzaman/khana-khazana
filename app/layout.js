@@ -11,8 +11,8 @@ export const metadata = {
   description: "Choose from thousands of recipes",
 };
 
-export default function RootLayout({ children }) {
-  dbConnect();
+export default async function RootLayout({ children }) {
+  await dbConnect();
   return (
     <html lang="en">
       <body className={inter.className}>

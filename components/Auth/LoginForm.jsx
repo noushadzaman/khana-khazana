@@ -8,15 +8,18 @@ import { useState } from "react";
 const LoginForm = () => {
     const [error, setError] = useState('');
     const { auth, setAuth } = useAuth();
-    const router = useRouter()
+    const router = useRouter();
 
     async function onSubmit(event) {
         event.preventDefault();
         try {
             const formData = new FormData(event.currentTarget);
-            const found = await performLogin(formData);
+            const found = await performLogin(formData)
             if (found) {
+                console.log(found);
+                console.log(auth);
                 setAuth(found);
+                console.log(auth);
                 router.push('/');
             }
             else {
@@ -33,7 +36,7 @@ const LoginForm = () => {
             <div className="my-2 text-red-500">
                 {error}
             </div>
-            <form class="login-form"
+            <form className="login-form"
                 onSubmit={onSubmit}
             >
                 <div>
@@ -46,7 +49,7 @@ const LoginForm = () => {
                 </div>
                 <button
                     type="submit"
-                    class="bg-[#eb4a36] py-3 rounded-md text-white w-full mt-4"
+                    className="bg-[#eb4a36] py-3 rounded-md text-white w-full mt-4"
                 >
                     Login
                 </button>

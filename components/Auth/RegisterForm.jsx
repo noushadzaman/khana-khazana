@@ -2,7 +2,7 @@ import { registerUser } from "@/app/action";
 
 const RegisterForm = () => {
     return (
-        <form class="login-form" action={registerUser}>
+        <form className="login-form" action={registerUser}>
             <div>
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" />
@@ -24,7 +24,7 @@ const RegisterForm = () => {
 
             <button
                 type="submit"
-                class="bg-[#eb4a36] py-3 rounded-md text-white w-full mt-4"
+                className="bg-[#eb4a36] py-3 rounded-md text-white w-full mt-4"
             >
                 Create Account
             </button>

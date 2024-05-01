@@ -11,8 +11,8 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <section class="container py-8">
-        <div class="grid grid-cols-12 py-4">
+      <section className="container py-8">
+        <div className="grid grid-cols-12 py-4">
           <CategorySidebar allCategories={allCategories} />
           <RecipesList allRecipes={allRecipes} isHome={true} />
         </div>

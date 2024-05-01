@@ -1,6 +1,7 @@
 import { recipeModel } from "@/models/recipes-model";
 import { userModel } from "@/models/users-model";
 import { replaceMongoIdInArray, replaceMongoIdInObj } from "@/utils/data-utils";
+import mongoose from "mongoose";
 
 async function getAllRecipes(query) {
   try {
@@ -37,4 +38,16 @@ async function findUserByCredentials(credentials) {
   return null;
 }
 
-export { getAllRecipes, getRecipeById, createUser, findUserByCredentials };
+async function updateFavoriteRecipe(userId, recipeId) {
+  const user = await userModel.findById(userId);
+  user.favourites.push(new mongoose.Types.ObjectId(recipeId));
+  user.save();
+}
+
+export {
+  getAllRecipes,
+  getRecipeById,
+  createUser,
+  findUserByCredentials,
+  updateFavoriteRecipe,
+};

@@ -8,6 +8,9 @@ export async function generateMetadata({ params: { recipeId } }) {
   return {
     title: `Khana Khazana - ${recipe?.name}`,
     description: `${recipe?.description}`,
+    openGraph: {
+      images: [recipe?.image],
+    },
   };
 }
 

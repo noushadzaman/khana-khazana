@@ -18,7 +18,7 @@ const SignInOut = () => {
             {
                 auth ?
                     <>
-                        {/* <span className="mx-2">Assalamu alaikum, {auth?.email}</span> */}
+                        <span className="mx-2">Assalamu alaikum, {auth?.email}</span>
                         <a
                             onClick={logOut}
                             className="cursor-pointer"
