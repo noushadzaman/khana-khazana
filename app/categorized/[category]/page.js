@@ -1,8 +1,10 @@
 import RecipesList from "@/components/RecipesList";
 import { getAllRecipes } from "@/db/queries";
+import { dbConnect } from "@/services/mongo";
 import { makeLinkReverse } from "@/utils/data-utils";
 
 export default async function page({ params: { category } }) {
+  await dbConnect();
   const allRecipes = await getAllRecipes(makeLinkReverse(category));
   return (
     <>

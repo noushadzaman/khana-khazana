@@ -1,7 +1,7 @@
 import RecipeCard from "./RecipeCard";
 
 const RecipesList = ({ allRecipes, isHome }) => {
-    console.log(allRecipes);
+    
     return (
         <div className="col-span-12 md:col-span-9">
             <div

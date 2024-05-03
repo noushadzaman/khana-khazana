@@ -2,6 +2,7 @@
 
 import { performLogin } from "@/app/action";
 import { useAuth } from "@/app/hooks/useAuth";
+import { dbConnect } from "@/services/mongo";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -14,12 +15,10 @@ const LoginForm = () => {
         event.preventDefault();
         try {
             const formData = new FormData(event.currentTarget);
+            await dbConnect();
             const found = await performLogin(formData)
             if (found) {
-                console.log(found);
-                console.log(auth);
                 setAuth(found);
-                console.log(auth);
                 router.push('/');
             }
             else {
